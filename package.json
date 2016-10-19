@@ -1,0 +1,17 @@
+{
+  "name": "react-oauth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://stasok@bitbucket.org/stasok/react-oauth.git"
+  },
+  "author": "Stanislav Tsvetkov",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/stasok/react-oauth#readme",
+  "keywords": [],
+  "description": ""
+}
