@@ -3,6 +3,7 @@ import React from 'react';
 import PublicPage from './pages/public';
 import ReposPage from './pages/repo';
 import Layout from './layout';
+import app from './app';
 
 
 export default Router.extend({
