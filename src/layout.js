@@ -22,7 +22,7 @@ export default React.createClass({
 						<li>ХабТагс</li>
 						<li><a href='/repos'>Репозиторий</a></li>
 						<li className='pull-right'>
-							<a href='/logout'>Выйти</a>
+							<a href='/'>Выйти</a>
 						</li>
 					</ul>
 				</nav>

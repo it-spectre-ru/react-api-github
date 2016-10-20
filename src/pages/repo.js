@@ -4,7 +4,7 @@ export default React.createClass({
   render () {
     return (
       <div>
-        <h2>Repos</h2>
+        <h2>Хранилище</h2>
       </div>
     )
   }
