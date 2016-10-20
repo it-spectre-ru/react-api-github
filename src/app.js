@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 
-var Hello = React.createClass({
-	render: function () {
-		return <div> Hello, {this.props.name}</div>
+const Hello = React.createClass({
+	render () {
+		return <div> Реакт, {this.props.name}</div>
 	}
 });
 
