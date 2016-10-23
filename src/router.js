@@ -1,11 +1,11 @@
-import Router from 'ampersand-router'
+import app from 'ampersand-app';
+import Router from 'ampersand-router';
 import React from 'react';
 import qs from 'qs';
 import xhr from 'xhr';
 import PublicPage from './pages/public';
 import ReposPage from './pages/repo';
 import Layout from './layout';
-import app from './app';
 
 
 export default Router.extend({
@@ -53,10 +53,11 @@ export default Router.extend({
 		console.log(query);
 
 		xhr({
-			url: 'https://labelr-localhost.herokuapp.com/authenticate/' + query.code,
+			url: 'https://react-oauth.herokuapp.com/authenticate/' + query.code,
 			json: true
 		}, (err, req, body) => {
 			console.log(body);
+			app.me.token = body.token;
 		})
 	}
 })
