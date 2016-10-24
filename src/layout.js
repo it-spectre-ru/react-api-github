@@ -1,10 +1,15 @@
 import React from 'react';
+import ampersandMixin from 'ampersand-react-mixin';
 import NavHelper from './components/nav-helper';
 
 export default React.createClass({
+	mixins: [ampersandMixin],
+
 	displayName: 'Layout',
 
 	render () {
+		const {me} = this.props
+
 		return (
 			<NavHelper>
 				<nav className='top-nav top-nav-light cf' role='navigation'>
@@ -14,7 +19,7 @@ export default React.createClass({
 						<a href="/"><li>ХабТагс</li></a>
 						<li><a href='/repos'>Репозиторий</a></li>
 						<li className='pull-right'>
-							<a href='/logout'>Выйти</a>
+							<a href='/logout'>Выйти </a> {me.login}
 						</li>
 					</ul>
 				</nav>
