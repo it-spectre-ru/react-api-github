@@ -11,10 +11,10 @@ export default React.createClass({
 					<input id='menu-toggle' className='menu-toggle' type='checkbox'/>
 					<label htmlFor='menu-toggle'>Меню</label>
 					<ul className='list-unstyled list-inline cf'>
-						<li>ХабТагс</li>
+						<a href="/"><li>ХабТагс</li></a>
 						<li><a href='/repos'>Репозиторий</a></li>
 						<li className='pull-right'>
-							<a href='/'>Выйти</a>
+							<a href='/logout'>Выйти</a>
 						</li>
 					</ul>
 				</nav>
