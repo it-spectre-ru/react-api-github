@@ -4,7 +4,7 @@ import React from 'react';
 import qs from 'qs';
 import xhr from 'xhr';
 import PublicPage from './pages/public';
-import ReposPage from './pages/repo';
+import ReposPage from './pages/repos';
 import Layout from './layout';
 
 
@@ -37,7 +37,7 @@ export default Router.extend({
 
 
 	repos () {
-		this.renderPage(<ReposPage/>)
+		this.renderPage(<ReposPage repos={app.me.repos}/>)
 	},
 
 
