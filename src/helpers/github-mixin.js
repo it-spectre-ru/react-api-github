@@ -7,5 +7,5 @@ export default {
 				Authorization: 'token ' + app.me.token
 			}
 		}
-	},
+	}
 }
