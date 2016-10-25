@@ -11,7 +11,7 @@ export default React.createClass({
 				<div>
 					<p>Lorem ipsum dolor sit.</p>
 					<a href="/login" className='button button-large'>
-						<span className='mega-octicon octicon-mark-github'>Войти с GitHub</span>
+						<span className='mega-octicon octicon-mark-github'> Войти с GitHub</span>
 					</a>
 				</div>
 			</NavHelper>
