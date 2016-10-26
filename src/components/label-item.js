@@ -19,6 +19,18 @@ export default React.createClass({
 		this.props.label.editing = true
 	},
 
+	getInitialState () {
+		const {name, color} = this.props.label;
+
+		return {name, color}; /* instead old --> return {name: name, color: color} */
+	},
+
+	onNameChange (event) {
+		this.setState({
+			name: event.target.value
+		})
+	},
+
 	render () {
 		const {label} = this.props;
 		const cssColor = '#' + label.color;
@@ -28,17 +40,18 @@ export default React.createClass({
 		if (label.editing) {
 			content = (
 				<form className='label'>
-					<span className='label-color avatar avatar-small avatar-rounded'>&#160;</span>
-					<input name='name'/>
+					<span className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
+					<input name='name' onChange={this.onNameChange} value={this.state.name}/>
 					<input name='color'/>
 					<button type='submit' className='button button-small'>Сохранить</button>
-					<button onClick={this.onCancelClick} type='button' className='button button-small button-unstyled'>Отмена</button>
+					<button onClick={this.onCancelClick} type='button' className='button button-small button-unstyled'>Отмена
+					</button>
 				</form>
 			)
 		} else {
 			content = (
 				<div className='label'>
-					<span className='label-color' style={{backgroundColor: cssColor}}>&#160;</span>
+					<span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
 					<span>{label.name}</span>
 					<span onClick={this.onEditClick} className='octicon octicon-pencil'></span>
 					<span onClick={this.onDeleteClick} className='octicon octicon-x'></span>
