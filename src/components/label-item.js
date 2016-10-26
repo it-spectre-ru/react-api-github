@@ -4,6 +4,11 @@ import ampersandMixin from 'ampersand-react-mixin'
 export default React.createClass({
 	mixins: [ampersandMixin],
 
+	onDeleteClick (event) {
+		event.preventDefault();
+		this.props.label.destroy()
+	},
+
 	onCancelClick (event) {
 		event.preventDefault();
 		this.props.label.editing = false
@@ -23,7 +28,7 @@ export default React.createClass({
 		if (label.editing) {
 			content = (
 				<form className='label'>
-					<span className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
+					<span className='label-color avatar avatar-small avatar-rounded'>&#160;</span>
 					<input name='name'/>
 					<input name='color'/>
 					<button type='submit' className='button button-small'>Сохранить</button>
@@ -33,10 +38,10 @@ export default React.createClass({
 		} else {
 			content = (
 				<div className='label'>
-					<span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
+					<span className='label-color' style={{backgroundColor: cssColor}}>&#160;</span>
 					<span>{label.name}</span>
 					<span onClick={this.onEditClick} className='octicon octicon-pencil'></span>
-					<span className='octicon octicon-x'></span>
+					<span onClick={this.onDeleteClick} className='octicon octicon-x'></span>
 				</div>
 			)
 		}
