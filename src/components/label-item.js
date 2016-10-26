@@ -4,7 +4,13 @@ import ampersandMixin from 'ampersand-react-mixin'
 export default React.createClass({
 	mixins: [ampersandMixin],
 
-	onEditClick () {
+	onCancelClick (event) {
+		event.preventDefault();
+		this.props.label.editing = false
+	},
+
+	onEditClick (event) {
+		event.preventDefault();
 		this.props.label.editing = true
 	},
 
@@ -21,7 +27,7 @@ export default React.createClass({
 					<input name='name'/>
 					<input name='color'/>
 					<button type='submit' className='button button-small'>Сохранить</button>
-					<button type='button' className='button button-small button-unstyled'>Отмена</button>
+					<button onClick={this.onCancelClick} type='button' className='button button-small button-unstyled'>Отмена</button>
 				</form>
 			)
 		} else {
