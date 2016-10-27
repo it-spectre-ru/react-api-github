@@ -38,16 +38,23 @@ export default React.createClass({
 		})
 	},
 
+	onSubmit(event) {
+		event.preventDefault();
+		const {label} = this.props;
+		label.update(this.state);
+		label.editing = false
+	},
+
 	render () {
 		const {label} = this.props;
-		const {color} = this.state
+		const {color} = this.state;
 		const cssColor = '#' + color;
 		let content;
 
 		// editing
 		if (label.editing) {
 			content = (
-				<form className='label'>
+				<form onSubmit={this.onSubmit} className='label'>
 					<span style={{backgroundColor: cssColor}} className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
 					<input name='name' onChange={this.onNameChange} value={this.state.name}/>
 					<input name='color' onChange={this.onColorChange} value={cssColor} />
