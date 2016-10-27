@@ -23,7 +23,7 @@ export default React.createClass({
 			<div className='container'>
 				<h1>{repo.full_name}</h1>
 				<p>
-					<button onClick={this.onAddClick} className='button'>Добавить</button>
+					<button onClick={this.onAddClick} className='button'>Добавить новую метку</button>
 				</p>
 				<ul>
 					{labels.map((label) => {
