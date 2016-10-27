@@ -7,10 +7,17 @@ import PublicPage from './pages/public';
 import ReposPage from './pages/repos';
 import RepoDetail from './pages/repo-detail';
 import Layout from './layout';
+import MessagePage from './pages/message';
 
 
-function requiresAuth() {
-	
+function requiresAuth(handlerName) {
+	return function () {
+		if (app.me.token) {
+			this[handlerName].apply(this, arguments)
+		} else {
+			this.redirectTo('/')
+		}
+	}
 }
 
 export default Router.extend({
@@ -33,7 +40,8 @@ export default Router.extend({
 		'login': 'login',
 		'logout': 'logout',
 		'repo/:owner/:name': requiresAuth('repoDetail'),
-		'auth/callback?:query': 'authCallback'
+		'auth/callback?:query': 'authCallback',
+		'*fourOhfour': 'fourOhfour'
 	},
 
 
@@ -55,25 +63,31 @@ export default Router.extend({
 				client_id: 'b69a46c938af54882e4c',
 				redirect_uri: window.location.origin + '/auth/callback',
 				scope: 'user,repo'
-		})
+			})
 	},
 
 	authCallback (query) {
-		query = qs.parse(query)
+		query = qs.parse(query);
 		console.log(query);
 
 		xhr({
 			url: 'https://react-oauth.herokuapp.com/authenticate/' + query.code,
 			json: true
 		}, (err, req, body) => {
-			console.log(body)
-			app.me.token = body.token
+			console.log(body);
+			app.me.token = body.token;
 			this.redirectTo('/repos')
-		})
+		});
+
+		this.renderPage(<MessagePage title='Получение данных...'/>)
 	},
 
 	logout () {
-		window.localStorage.clear()
+		window.localStorage.clear();
 		window.location = '/'
+	},
+
+	fourOhfour () {
+		this.renderPage(<MessagePage title='Ошибка 404' body='страница не найдена'/>)
 	}
 })
