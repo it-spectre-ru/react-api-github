@@ -8,6 +8,7 @@ import ReposPage from './pages/repos';
 import RepoDetail from './pages/repo-detail';
 import Layout from './layout';
 import MessagePage from './pages/message';
+import config from './config';
 
 
 function requiresAuth(handlerName) {
@@ -60,7 +61,7 @@ export default Router.extend({
 
 	login () {
 		window.location = 'https://github.com/login/oauth/authorize?' + qs.stringify({
-				client_id: 'b69a46c938af54882e4c',
+				client_id: config.clientId,
 				redirect_uri: window.location.origin + '/auth/callback',
 				scope: 'user,repo'
 			})
@@ -71,7 +72,7 @@ export default Router.extend({
 		console.log(query);
 
 		xhr({
-			url: 'https://react-oauth.herokuapp.com/authenticate/' + query.code,
+			url: config.authUrl + '/' + query.code,
 			json: true
 		}, (err, req, body) => {
 			console.log(body);
