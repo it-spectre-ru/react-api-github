@@ -9,7 +9,7 @@ export default React.createClass({
 					<h1>Метка</h1>
 				</header>
 				<div>
-					<p>Lorem ipsum dolor sit.</p>
+					<p>Редактирование меток на гитхаб</p>
 					<a href="/login" className='button button-large'>
 						<span className='mega-octicon octicon-mark-github'> Войти с GitHub</span>
 					</a>

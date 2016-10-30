@@ -4,10 +4,10 @@ const config = {
 		clientId: 'b69a46c938af54882e4c'
 	},
 
-	'label.surge.sh': {
-		authUrl: 'https://react-oauth-prod.herokuapp.com/authenticate',
-		clientId: ''
+	'react-oauth.surge.sh': {
+		authUrl: 'https://react-oauth-production.herokuapp.com/authenticate',
+		clientId: '31aebc9ac7adc6d61dbe '
 	}
-}[location.hostname];
+}[window.location.hostname];
 
 export default config
