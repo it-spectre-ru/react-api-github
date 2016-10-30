@@ -25,7 +25,7 @@
 
 
 #### Получить помощь
-https://bitbucket.org/stasok/react-oauth - Ваши пожелания и замечания к проекту.
+https://bitbucket.org/stasok/react-oauth/pull-requests/ - Ваши пожелания и замечания к проекту.
 
 
 #### Смотрите также
