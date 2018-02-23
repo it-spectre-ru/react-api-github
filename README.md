@@ -25,7 +25,7 @@
 
 
 #### Получить помощь
-https://bitbucket.org/stasok/react-oauth/pull-requests/ - Ваши пожелания и замечания к проекту.
+* [Ваши пожелания и замечания к проекту](https://github.com/it-spectre-ru/react-api-github/pulls)
 
 
 #### Смотрите также
